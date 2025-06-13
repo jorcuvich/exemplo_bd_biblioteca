@@ -1,0 +1,9 @@
+--Corrigir e-mail do usuário com id = 2
+UPDATE usuarios
+SET email = 'novoemail@example.com'
+WHERE id_usuario = 2;
+
+--Alterar a data de devolução de um empréstimo
+UPDATE emprestimos
+SET data_devolucao = '2024-06-20'
+WHERE id_emprestimo = 1;
