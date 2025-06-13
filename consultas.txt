@@ -1,0 +1,33 @@
+--Listar todos os livros
+SELECT * FROM livros;
+
+--Listar todos os usuários ordenados por nome
+SELECT * FROM usuarios ORDER BY nome;
+
+--Livros publicados após o ano 1900
+SELECT titulo, ano_publicacao FROM livros
+WHERE ano_publicacao > 1900;
+
+--Listar livros com nome do autor
+SELECT livros.titulo, autores.nome AS autor
+FROM livros
+JOIN autores ON livros.id_autor = autores.id_autor;
+
+--Mostrar empréstimos com nome do usuário e título do livro
+SELECT usuarios.nome AS usuario, livros.titulo, emprestimos.data_emprestimo, emprestimos.data_devolucao
+FROM emprestimos
+JOIN usuarios ON emprestimos.id_usuario = usuarios.id_usuario
+JOIN livros ON emprestimos.id_livro = livros.id_livro;
+
+--Empréstimos feitos por "Ana Souza"
+SELECT livros.titulo, emprestimos.data_emprestimo
+FROM emprestimos
+JOIN usuarios ON emprestimos.id_usuario = usuarios.id_usuario
+JOIN livros ON emprestimos.id_livro = livros.id_livro
+WHERE usuarios.nome = 'Ana Souza';
+
+--Livros do autor "Machado de Assis"
+SELECT livros.titulo
+FROM livros
+JOIN autores ON livros.id_autor = autores.id_autor
+WHERE autores.nome = 'Machado de Assis';
