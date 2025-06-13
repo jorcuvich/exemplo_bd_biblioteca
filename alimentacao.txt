@@ -1,0 +1,13 @@
+INSERT INTO autores (nome, nacionalidade)
+VALUES ('Jorge Amado', 'Brasileiro');
+
+INSERT INTO livros (titulo, ano_publicacao, id_autor)
+VALUES ('Capitães da Areia', 1937, 4);
+
+
+INSERT INTO usuarios (nome, email, data_nascimento)
+VALUES ('João da Silva', 'joao@example.com', '1990-03-15');
+
+
+INSERT INTO emprestimos (id_usuario, id_livro, data_emprestimo, data_devolucao)
+VALUES (2, 1, '2024-06-01', '2024-06-15');
