@@ -1,0 +1,10 @@
+--Remover um usuário
+DELETE FROM usuarios
+WHERE id_usuario = 5;
+
+
+--Remover todos os livros do autor "George Orwell"
+DELETE FROM livros
+WHERE id_autor = (
+    SELECT id_autor FROM autores WHERE nome = 'George Orwell'
+);
