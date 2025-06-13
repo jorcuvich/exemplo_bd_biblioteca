@@ -1,0 +1,30 @@
+CREATE TABLE autores (
+    id_autor INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    nacionalidade TEXT
+);
+
+CREATE TABLE livros (
+    id_livro INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo TEXT NOT NULL,
+    ano_publicacao INTEGER,
+    id_autor INTEGER,
+    FOREIGN KEY (id_autor) REFERENCES autores(id_autor)
+);
+
+CREATE TABLE usuarios (
+    id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    data_nascimento DATE
+);
+
+CREATE TABLE emprestimos (
+    id_emprestimo INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_usuario INTEGER,
+    id_livro INTEGER,
+    data_emprestimo DATE NOT NULL,
+    data_devolucao DATE,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
+    FOREIGN KEY (id_livro) REFERENCES livros(id_livro)
+);
