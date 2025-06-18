@@ -1,10 +1,10 @@
-CREATE TABLE autores (
+CREATE TABLE IF NOT EXISTS autores (
     id_autor INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
     nacionalidade TEXT
 );
 
-CREATE TABLE livros (
+CREATE TABLE IF NOT EXISTS livros (
     id_livro INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo TEXT NOT NULL,
     ano_publicacao INTEGER,
@@ -12,14 +12,14 @@ CREATE TABLE livros (
     FOREIGN KEY (id_autor) REFERENCES autores(id_autor)
 );
 
-CREATE TABLE usuarios (
+CREATE TABLE IF NOT EXISTS usuarios (
     id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
     data_nascimento DATE
 );
 
-CREATE TABLE emprestimos (
+CREATE TABLE IF NOT EXISTS emprestimos (
     id_emprestimo INTEGER PRIMARY KEY AUTOINCREMENT,
     id_usuario INTEGER,
     id_livro INTEGER,
